@@ -1,0 +1,60 @@
+# === Java ===
+*.class
+*.jar
+*.war
+*.ear
+
+# === Maven ===
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+**/dependency-reduced-pom.xml
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+
+# === Gradle (if accidentally added) ===
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# === IDEs ===
+# IntelliJ
+.idea/
+*.iml
+*.iws
+out/
+# VS Code
+.vscode/
+
+# === Logs ===
+*.log
+logs/
+spring.log
+
+# === OS generated ===
+.DS_Store
+Thumbs.db
+
+# === Environment files ===
+.env
+.env.*
+
+# === Docker ===
+/docker-compose.override.yml
+**/docker-data/
+**/tmp/
+
+# === Application specific ===
+/config/application-local.yml
+/config/application-dev.yml
+/config/application-prod.yml
+
+# === Test reports ===
+/surefire-reports/
+/jacoco-report/
+/coverage/
+
+# === Others ===
+*.swp
+*.swo
+*.bak
+
