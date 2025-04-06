@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: YourApp
+#  main:
+#    web-application-type: servlet
