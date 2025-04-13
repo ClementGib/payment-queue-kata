@@ -13,11 +13,11 @@ public interface PartnerPersistencePort {
     
     /**
      * create the current Partner
-     * 
+     *
      * @param partner to create
      * @return created Partner
      */
-    public Partner create(Partner partner);
+    public Optional<Partner> create(Partner partner);
 
     /**
      * delete Partner from its alias

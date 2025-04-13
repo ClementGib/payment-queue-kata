@@ -30,12 +30,24 @@ public class PartnerRepositoryImpl implements PartnerPersistencePort {
     }
 
     @Override
-    public Partner create(Partner partner) {
-        return null;
+    public Optional<Partner> create(Partner partner) {
+        if (partnerJpaRepository.existsById(partner.getAlias())) {
+            return Optional.empty();
+        }
+
+        PartnerEntity entity = partnerMapper.toEntity(partner);
+        PartnerEntity save = partnerJpaRepository.save(entity);
+        return Optional.of(partnerMapper.toDomain(save));
     }
 
     @Override
     public Optional<Partner> deleteByAlias(String alias) {
+        Optional<PartnerEntity> entity = partnerJpaRepository.findById(alias);
+        if (entity.isPresent()) {
+            PartnerEntity partnerEntity = entity.get();
+            partnerJpaRepository.delete(partnerEntity);
+            return Optional.of(partnerMapper.toDomain(partnerEntity));
+        }
         return Optional.empty();
     }
 }

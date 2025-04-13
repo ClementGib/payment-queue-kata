@@ -1,5 +1,6 @@
 package com.cacib.pqk.partner;
 
+import java.util.Optional;
 import java.util.Set;
 
 public interface PartnerServicePort {
@@ -13,16 +14,16 @@ public interface PartnerServicePort {
     /**
      * Create new Partner
      *
-     * @param partner to create
-     * @return created Partner
+     * @param newPartner to create
+     * @return optional created Partner
      */
-    Partner create(Partner partner);
+    Optional<Partner> create(Partner newPartner);
 
     /**
      * Delete existing Partner
      *
-     * @param partner to delete
-     * @return deleted Partner
+     * @param partner alias to delete
+     * @return optional deleted Partner
      */
-    Partner delete(Partner partner);
+    Optional<Partner> delete(String partner);
 }

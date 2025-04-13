@@ -3,6 +3,7 @@ package com.cacib.pqk.client;
 import com.cacib.pqk.partner.Partner;
 import com.cacib.pqk.partner.PartnerControllerPort;
 import com.cacib.pqk.partner.PartnerServicePort;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,18 +24,18 @@ public class PartnerController implements PartnerControllerPort {
     @Override
     @GetMapping
     public Set<Partner> getAll() {
-        return Set.of();
+        return partnerServicePort.getAll();
     }
 
     @Override
     @PostMapping
-    public Optional<Partner> create(Partner newPartner) {
-        return Optional.empty();
+    public Optional<Partner> create(@Valid @RequestBody Partner newPartner) {
+        return partnerServicePort.create(newPartner);
     }
 
     @Override
     @DeleteMapping("/{alias}")
-    public Optional<Partner> delete(@PathVariable String alias) {
-        return Optional.empty();
+    public Optional<Partner> delete(@Valid @PathVariable("alias") String alias) {
+        return partnerServicePort.delete(alias);
     }
 }

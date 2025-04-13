@@ -6,6 +6,7 @@ import com.cacib.pqk.partner.PartnerServicePort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -20,16 +21,16 @@ public class PartnerServiceImpl implements PartnerServicePort {
 
     @Override
     public Set<Partner> getAll() {
-        return Set.of();
+        return partnerPersistencePort.getAll();
     }
 
     @Override
-    public Partner create(Partner partner) {
-        return partner;
+    public Optional<Partner> create(Partner newPartner) {
+        return partnerPersistencePort.create(newPartner);
     }
 
     @Override
-    public Partner delete(Partner partner) {
-        return partner;
+    public Optional<Partner> delete(String alias) {
+        return partnerPersistencePort.deleteByAlias(alias);
     }
 }

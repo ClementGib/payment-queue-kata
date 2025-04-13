@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.AttributeConverter;
 
-public class ApplicationInfoMapper implements AttributeConverter<ApplicationInfo, String> {
+public class ApplicationInfoConverter implements AttributeConverter<ApplicationInfo, String> {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 

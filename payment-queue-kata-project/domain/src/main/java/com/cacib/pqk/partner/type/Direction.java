@@ -14,5 +14,4 @@ public enum Direction {
     Direction(Character directionCode) {
         this.directionCode = directionCode;
     }
-
 }
