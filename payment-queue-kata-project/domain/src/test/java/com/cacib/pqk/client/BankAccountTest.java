@@ -1,4 +1,4 @@
-package com.cdx.bas.client;
+package com.cacib.pqk.client;
 
 public class BankAccountTest {
 }
