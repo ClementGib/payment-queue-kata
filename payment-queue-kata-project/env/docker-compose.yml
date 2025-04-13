@@ -1,0 +1,46 @@
+services:
+  postgresql-db:
+    image: postgres:latest
+    ports:
+      - 15432:5432
+    environment:
+      - POSTGRES_USER=pqkadm
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=pqkdb
+    volumes:
+      - ./init-pg.sql:/docker-entrypoint-initdb.d/init-pg.sql:z
+      - ./insert-pg.sql:/docker-entrypoint-initdb.d/insert-pg.sql:z
+    networks:
+      - pqk-network
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-test@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json:z
+    ports:
+      - "${PGADMIN_PORT:-15050}:80"
+    networks:
+      - pqk-network
+
+  keycloak:
+    container_name: pqk_keycloak
+    image: quay.io/keycloak/keycloak:24.0.3
+    command: start-dev --import-realm
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    volumes:
+      - ./pqk-realm.json:/opt/keycloak/data/import/realm.json:z
+      - ./data:/opt/keycloak/data:z
+    ports:
+      - "${KEYCLOAK_PORT:-9180}:8080"
+    networks:
+      - pqk-network
+
+networks:
+  pqk-network:
+    name: pqk-network
