@@ -23,21 +23,15 @@
 
         <dependency>
             <groupId>com.cacib.pqk</groupId>
-            <artifactId>client</artifactId>
+            <artifactId>persistence</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>com.cacib.pqk</groupId>
+            <artifactId>client</artifactId>
+            <version>${project.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.7.3</version>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -54,5 +48,20 @@
                 </executions>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>../client/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>../persistence/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>../application/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
     </build>
 </project>

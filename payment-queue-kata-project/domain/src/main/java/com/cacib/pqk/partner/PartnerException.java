@@ -1,6 +1,6 @@
 package com.cacib.pqk.partner;
 
-import com.cacib.pqk.partner.exception.DomainException;
+import com.cacib.pqk.error.DomainException;
 import lombok.Generated;
 
 @Generated

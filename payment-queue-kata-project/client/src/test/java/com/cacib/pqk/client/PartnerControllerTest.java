@@ -1,5 +1,6 @@
 package com.cacib.pqk.client;
 
+import com.cacib.pqk.client.partner.PartnerController;
 import com.cacib.pqk.partner.*;
 import com.cacib.pqk.partner.type.Direction;
 import com.cacib.pqk.partner.type.FlowType;
