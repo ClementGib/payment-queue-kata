@@ -6,7 +6,7 @@
 	<groupId>com.cacib.pqk</groupId>
 	<artifactId>payment-queue-kata</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bank-account-spring</name>
+	<name>payment-queue-kata</name>
 	<packaging>pom</packaging>
 	<description>Kata of payment management application using IBM MQ</description>
 
@@ -15,6 +15,7 @@
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
 		<spring-boot.version>3.4.4</spring-boot.version>
+		<spring-jms.version>3.3.5</spring-jms.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
 		<lombok.version>1.18.36</lombok.version>
 	</properties>
@@ -24,6 +25,7 @@
 		<module>application</module>
 		<module>client</module>
 		<module>bootstrap</module>
+		<module>persistence</module>
 	</modules>
 
 	<dependencyManagement>
@@ -41,6 +43,19 @@
 				<artifactId>spring-boot-starter-data-jpa</artifactId>
 				<version>${spring-boot.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>com.ibm.mq</groupId>
+				<artifactId>mq-jms-spring-boot-starter</artifactId>
+				<version>${spring-jms.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.ibm.mq</groupId>
+				<artifactId>com.ibm.mq.jakarta.client</artifactId>
+				<version>9.4.1.1</version>
+			</dependency>
+
 
 			<dependency>
 				<groupId>org.projectlombok</groupId>
