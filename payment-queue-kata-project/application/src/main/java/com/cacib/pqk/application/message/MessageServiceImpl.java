@@ -13,6 +13,9 @@ import java.util.Set;
 @Service
 public class MessageServiceImpl implements MessageServicePort {
 
+    public static final String MESSAGE_RECEIVED_FORMAT = "Message received: %s";
+    public static final String ERRORED_MESSAGE_FORMAT = "Errored message: %s";
+
     @Autowired
     public MessageServiceImpl(MessagePersistencePort messagePersistencePort) {
         this.messagePersistencePort = messagePersistencePort;
@@ -28,13 +31,13 @@ public class MessageServiceImpl implements MessageServicePort {
 
     @Override
     public void process(Message newMessage) {
-        logger.info("Message received: " + newMessage);
+        logger.info(String.format(MESSAGE_RECEIVED_FORMAT, newMessage));
         messagePersistencePort.create(newMessage);
     }
 
     @Override
     public void processWithError(Message newErroredMessage) {
-        logger.info("Message received: " + newErroredMessage);
+        logger.error(String.format(ERRORED_MESSAGE_FORMAT, newErroredMessage));
         messagePersistencePort.create(newErroredMessage);
     }
 }

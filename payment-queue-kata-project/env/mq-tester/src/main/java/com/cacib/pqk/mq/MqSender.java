@@ -19,12 +19,12 @@ public class MqSender {
             String payload = """
                     {
                       "type": "MESSAGE",
-                      "header": "FOR IT TEAM",
-                      "body": "Hello from mq-tester"
+                      "header": "FOR IT ERP TEAM",
+                      "body": "Hello from mq-tester: new deal to book from CRM"
                     }
                     """;
             TextMessage message = session.createTextMessage(payload);
-            message.setStringProperty("partnerAlias", "cacib_crm");
+            message.setStringProperty("partnerAlias", "crm_to_pqk");
             message.setLongProperty("timestamp", System.currentTimeMillis());
             sender.send(message);
             System.out.println("✅ Message sent to queue: " + config.getQueueName());

@@ -22,8 +22,11 @@ public class MessageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "partner_alias", nullable = false, length = 50)
-    private String partnerAlias;
+    @Column(name = "emitter_alias", nullable = false, length = 50)
+    private String emitterAlias;
+
+    @Column(name = "receiver_alias", nullable = false, length = 50)
+    private String receiverAlias;
 
     @Type(JsonType.class)
     @Column(name = "payload", columnDefinition = "jsonb")

@@ -18,15 +18,19 @@ public class Message {
 
     private Long id;
 
-    @NotBlank(message = "Alias is required")
-    @Size(max = 50, message = "Alias must be at most 50 characters")
-    private String partnerAlias;
+    @NotBlank(message = "Emitter alias is required and should have at least 1 character")
+    @Size(max = 50, message = "Emitter alias must be at most 50 characters")
+    private String emitterAlias;
+
+    @NotBlank(message = "Receiver alias is required and should have at least 1 character")
+    @Size(max = 50, message = "Receiver alias must be at most 50 characters")
+    private String receiverAlias;
 
     @NotNull
     private String payload;
 
     @NotNull
-    private LocalDateTime receivedAt = LocalDateTime.now();
+    private LocalDateTime receivedAt;
 
     @EnumValidator(enumClass = Direction.class, message = "Direction must be INBOUND or OUTBOUND")
     private Direction direction;

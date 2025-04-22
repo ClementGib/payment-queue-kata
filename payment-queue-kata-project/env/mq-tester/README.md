@@ -40,7 +40,7 @@ port=1414
 applicationName=mq-sender
 username=app
 password=app
-queueName=MY.QUEUE.NAME
+queueName=DEV.QUEUE.1
 ```
 
 Update mq.properties with new host, queue, or credentials — no code changes required.

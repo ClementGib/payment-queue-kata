@@ -24,7 +24,8 @@ CREATE TABLE partners (
 
 CREATE TABLE messages (
     id BIGSERIAL UNIQUE NOT NULL,
-    partner_alias VARCHAR(50) NOT NULL REFERENCES partners(alias) ON DELETE SET NULL,
+    emitter_alias VARCHAR(50) NOT NULL REFERENCES partners(alias) ON DELETE SET NULL,
+    receiver_alias VARCHAR(50) NOT NULL REFERENCES partners(alias) ON DELETE SET NULL,
     payload JSONB NOT NULL,
     received_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     direction CHAR(1) NOT NULL,
@@ -44,5 +45,6 @@ CREATE INDEX idx_partner_alias ON partners(alias);
 CREATE INDEX idx_partner_direction ON partners(direction);
 CREATE INDEX idx_partners_flow_type ON partners(flow_type);
 
-CREATE INDEX idx_message_partner_alias ON messages(partner_alias);
+CREATE INDEX idx_message_emitter_alias ON messages(emitter_alias);
+CREATE INDEX idx_message_receiver_alias ON messages(receiver_alias);
 CREATE INDEX idx_message_received_at ON messages(received_at DESC);

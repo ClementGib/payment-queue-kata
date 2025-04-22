@@ -2,11 +2,11 @@ ibm:
   mq:
     queue-manager: QM1
     channel: DEV.APP.SVRCONN
-    conn-name: localhost(1414) # ou ip(1414)
+    conn-name: localhost(1414)
     user: app
     password: app
     queue: DEV.QUEUE.1
-    application-name: payment-queue
+    application-name: payment-queue-kata
     ssl-cipher-suite: null
 
 spring:
