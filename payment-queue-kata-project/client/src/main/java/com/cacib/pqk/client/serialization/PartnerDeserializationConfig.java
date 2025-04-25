@@ -1,7 +1,7 @@
 package com.cacib.pqk.client.serialization;
 
-import com.cacib.pqk.partner.type.Direction;
-import com.cacib.pqk.partner.type.FlowType;
+import com.cacib.pqk.domain.partner.type.Direction;
+import com.cacib.pqk.domain.partner.type.FlowType;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,6 @@
 package com.cacib.pqk.client.serialization;
 
-import com.cacib.pqk.partner.type.FlowType;
+import com.cacib.pqk.domain.partner.type.FlowType;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;

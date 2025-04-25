@@ -1,8 +1,8 @@
 package com.cacib.pqk.persistence.partner;
 
 import com.cacib.pqk.persistence.repository.PartnerJpaRepository;
-import com.cacib.pqk.partner.Partner;
-import com.cacib.pqk.partner.PartnerPersistencePort;
+import com.cacib.pqk.domain.partner.Partner;
+import com.cacib.pqk.domain.partner.PartnerPersistencePort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -27,6 +27,12 @@ public class PartnerRepositoryImpl implements PartnerPersistencePort {
         return partnerJpaRepository.findAll().stream()
                 .map(partnerMapper::toDomain)
                 .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Optional<Partner> getByAlias(String alias) {
+        return partnerJpaRepository.findById(alias).stream()
+                .map(partnerMapper::toDomain).findFirst();
     }
 
     @Override

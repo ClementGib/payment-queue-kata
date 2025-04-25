@@ -1,8 +1,8 @@
 package com.cacib.pqk.persistence.partner;
 import com.cacib.pqk.persistence.partner.direction.DirectionConverter;
 import com.cacib.pqk.persistence.partner.flow.FlowTypeConverter;
-import com.cacib.pqk.partner.type.Direction;
-import com.cacib.pqk.partner.type.FlowType;
+import com.cacib.pqk.domain.partner.type.Direction;
+import com.cacib.pqk.domain.partner.type.FlowType;
 import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.Getter;

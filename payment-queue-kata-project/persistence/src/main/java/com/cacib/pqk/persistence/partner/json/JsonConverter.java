@@ -1,7 +1,7 @@
 package com.cacib.pqk.persistence.partner.json;
 
-import com.cacib.pqk.partner.application.ApplicationInfo;
-import com.cacib.pqk.partner.application.ApplicationInfoException;
+import com.cacib.pqk.domain.partner.application.ApplicationInfo;
+import com.cacib.pqk.domain.partner.application.ApplicationInfoException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;

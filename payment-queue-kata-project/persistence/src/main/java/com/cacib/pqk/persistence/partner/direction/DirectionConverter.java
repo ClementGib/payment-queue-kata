@@ -1,10 +1,10 @@
 package com.cacib.pqk.persistence.partner.direction;
 
-import com.cacib.pqk.partner.type.Direction;
+import com.cacib.pqk.domain.partner.type.Direction;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
-import static com.cacib.pqk.partner.type.Direction.*;
+import static com.cacib.pqk.domain.partner.type.Direction.*;
 
 @Converter
 public class DirectionConverter implements AttributeConverter<Direction, Character> {

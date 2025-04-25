@@ -1,9 +1,11 @@
 package com.cacib.pqk.client;
 
 import com.cacib.pqk.client.partner.PartnerController;
+import com.cacib.pqk.domain.partner.Partner;
+import com.cacib.pqk.domain.partner.PartnerServicePort;
 import com.cacib.pqk.partner.*;
-import com.cacib.pqk.partner.type.Direction;
-import com.cacib.pqk.partner.type.FlowType;
+import com.cacib.pqk.domain.partner.type.Direction;
+import com.cacib.pqk.domain.partner.type.FlowType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
