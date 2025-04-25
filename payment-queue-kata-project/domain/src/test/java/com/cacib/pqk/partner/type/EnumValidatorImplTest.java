@@ -1,6 +1,7 @@
 package com.cacib.pqk.partner.type;
 
-import jakarta.validation.ConstraintValidatorContext;
+import com.cacib.pqk.domain.partner.type.EnumValidator;
+import com.cacib.pqk.domain.partner.type.EnumValidatorImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

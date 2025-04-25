@@ -1,8 +1,10 @@
 package com.cacib.pqk.partner;
 
 import com.cacib.pqk.application.partner.PartnerServiceImpl;
-import com.cacib.pqk.partner.type.Direction;
-import com.cacib.pqk.partner.type.FlowType;
+import com.cacib.pqk.domain.partner.Partner;
+import com.cacib.pqk.domain.partner.PartnerPersistencePort;
+import com.cacib.pqk.domain.partner.type.Direction;
+import com.cacib.pqk.domain.partner.type.FlowType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

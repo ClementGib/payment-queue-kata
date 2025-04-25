@@ -1,8 +1,8 @@
 package com.cacib.pqk.application.partner;
 
-import com.cacib.pqk.partner.Partner;
-import com.cacib.pqk.partner.PartnerPersistencePort;
-import com.cacib.pqk.partner.PartnerServicePort;
+import com.cacib.pqk.domain.partner.Partner;
+import com.cacib.pqk.domain.partner.PartnerPersistencePort;
+import com.cacib.pqk.domain.partner.PartnerServicePort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

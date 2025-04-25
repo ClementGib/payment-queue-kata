@@ -1,11 +1,8 @@
 package com.cacib.pqk.application.jms;
 
-import com.cacib.pqk.message.Message;
-import com.cacib.pqk.message.MessageStatus;
-import com.cacib.pqk.partner.type.Direction;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.cacib.pqk.domain.message.Message;
+import com.cacib.pqk.domain.message.MessageStatus;
+import com.cacib.pqk.domain.partner.type.Direction;
 import jakarta.jms.JMSException;
 import jakarta.jms.TextMessage;
 import org.apache.activemq.artemis.commons.shaded.json.JsonException;
@@ -14,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class JmsService {
@@ -22,13 +21,11 @@ public class JmsService {
     public static final String RECEIVER_ALIAS = "receiverAlias";
     Logger logger = LoggerFactory.getLogger(JmsService.class);
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
     public Message extractMessage(TextMessage textMessage) throws JMSException {
         String emitterAlias = textMessage.getStringProperty(EMITTER_ALIAS);
         String receiverAlias = textMessage.getStringProperty(RECEIVER_ALIAS);
         String payload = textMessage.getText();
-        String metadata = createMetadata(textMessage);
+        Map<String, String> metadata = createMetadata(textMessage);
         return Message.builder()
                 .emitterAlias(emitterAlias)
                 .receiverAlias(receiverAlias)
@@ -36,19 +33,15 @@ public class JmsService {
                 .direction(Direction.INBOUND)
                 .payload(payload)
                 .receivedAt(LocalDateTime.now())
-                .status(MessageStatus.PROCESSED)
+                .status(MessageStatus.IN_PROGRESS)
                 .build();
     }
 
-    private String createMetadata(TextMessage textMessage) throws JMSException {
-        ObjectNode json = objectMapper.createObjectNode();
+    private Map<String, String>  createMetadata(TextMessage textMessage) throws JMSException {
+        Map<String, String> metadata = new HashMap<>();
         String timestamp = textMessage.getStringProperty("timestamp");
-        json.put("timestamp", timestamp);
-        try {
-            return objectMapper.writeValueAsString(json);
-        } catch (JsonProcessingException exception) {
-            throw new JsonException("Unexpected Json exception while creating metadata", exception);
-        }
+        metadata.put("timestamp", timestamp);
+        return metadata;
     }
 
     public Message createErroredMessage(TextMessage textMessage, Exception rootCause) {
@@ -67,21 +60,15 @@ public class JmsService {
             logger.error(RECEIVER_ALIAS + "is missing.");
         }
 
-        String metadata = """
-                {
-                    "jmsMessageID": "%s",
-                    "timestamp": %d,
-                    "type": "%s",
-                    "destination": "%s",
-                    "error": "%s"
-                }
-                """.formatted(
-                safe(textMessage::getJMSMessageID),
-                safe(textMessage::getJMSTimestamp),
-                safe(textMessage::getJMSType),
-                safe(() -> String.valueOf(textMessage.getJMSDestination())),
-                rootCause.getMessage().replace("\"", "'")
-        );
+        Map<String, String> metadata = new HashMap<>();
+
+        metadata.put("jmsMessageID", safe(textMessage::getJMSMessageID));
+        Long timestamp = safe(textMessage::getJMSTimestamp);
+        metadata.put("timestamp", timestamp != null ? timestamp.toString() : null);
+        metadata.put("type", safe(textMessage::getJMSType));
+        metadata.put("destination", safe(() -> String.valueOf(textMessage.getJMSDestination())));
+        metadata.put("error", rootCause.getMessage() != null ? rootCause.getMessage().replace("\"", "'") : "Unknown error");
+
 
         return Message.builder()
                 .emitterAlias(emitterAlias != null ? emitterAlias : "unknown")

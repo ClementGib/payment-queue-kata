@@ -1,9 +1,8 @@
 package com.cacib.pqk.client.message;
 
-import com.cacib.pqk.message.Message;
-import com.cacib.pqk.message.MessageControllerPort;
+import com.cacib.pqk.domain.message.Message;
+import com.cacib.pqk.domain.message.MessageControllerPort;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

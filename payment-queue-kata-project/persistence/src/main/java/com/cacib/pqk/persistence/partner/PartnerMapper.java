@@ -1,7 +1,7 @@
 package com.cacib.pqk.persistence.partner;
 
 import com.cacib.pqk.persistence.partner.json.JsonConverter;
-import com.cacib.pqk.partner.Partner;
+import com.cacib.pqk.domain.partner.Partner;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring", uses = JsonConverter.class)

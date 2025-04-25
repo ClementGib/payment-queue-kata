@@ -1,7 +1,7 @@
 package com.cacib.pqk.persistence.message;
 
-import com.cacib.pqk.message.Message;
-import com.cacib.pqk.message.MessagePersistencePort;
+import com.cacib.pqk.domain.message.Message;
+import com.cacib.pqk.domain.message.MessagePersistencePort;
 import com.cacib.pqk.persistence.repository.MessageJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

@@ -1,6 +1,6 @@
 package com.cacib.pqk.client.serialization;
 
-import com.cacib.pqk.partner.type.Direction;
+import com.cacib.pqk.domain.partner.type.Direction;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

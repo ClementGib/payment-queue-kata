@@ -1,8 +1,8 @@
 package com.cacib.pqk.client.partner;
 
-import com.cacib.pqk.partner.Partner;
-import com.cacib.pqk.partner.PartnerControllerPort;
-import com.cacib.pqk.partner.PartnerServicePort;
+import com.cacib.pqk.domain.partner.Partner;
+import com.cacib.pqk.domain.partner.PartnerControllerPort;
+import com.cacib.pqk.domain.partner.PartnerServicePort;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

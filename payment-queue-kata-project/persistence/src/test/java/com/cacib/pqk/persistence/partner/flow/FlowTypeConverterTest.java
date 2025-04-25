@@ -3,7 +3,7 @@ package com.cacib.pqk.persistence.partner.flow;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.cacib.pqk.partner.type.FlowType.*;
+import static com.cacib.pqk.domain.partner.type.FlowType.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FlowTypeConverterTest {

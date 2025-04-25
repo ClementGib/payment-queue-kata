@@ -1,10 +1,10 @@
 package com.cacib.pqk.persistence.partner.flow;
 
-import com.cacib.pqk.partner.type.FlowType;
+import com.cacib.pqk.domain.partner.type.FlowType;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
-import static com.cacib.pqk.partner.type.FlowType.*;
+import static com.cacib.pqk.domain.partner.type.FlowType.*;
 
 @Converter
 public class FlowTypeConverter implements AttributeConverter<FlowType, Character> {

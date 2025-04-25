@@ -1,7 +1,7 @@
 package com.cacib.pqk.persistence.message;
 
-import com.cacib.pqk.message.MessageStatus;
-import com.cacib.pqk.partner.type.Direction;
+import com.cacib.pqk.domain.message.MessageStatus;
+import com.cacib.pqk.domain.partner.type.Direction;
 import com.cacib.pqk.persistence.partner.direction.DirectionConverter;
 import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;

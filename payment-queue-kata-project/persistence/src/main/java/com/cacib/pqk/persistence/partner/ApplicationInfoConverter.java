@@ -1,6 +1,6 @@
 package com.cacib.pqk.persistence.partner;
 
-import com.cacib.pqk.partner.application.ApplicationInfo;
+import com.cacib.pqk.domain.partner.application.ApplicationInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.AttributeConverter;

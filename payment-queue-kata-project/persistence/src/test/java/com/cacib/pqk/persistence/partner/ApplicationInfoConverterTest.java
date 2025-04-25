@@ -1,6 +1,6 @@
 package com.cacib.pqk.persistence.partner;
 
-import com.cacib.pqk.partner.application.ApplicationInfo;
+import com.cacib.pqk.domain.partner.application.ApplicationInfo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
